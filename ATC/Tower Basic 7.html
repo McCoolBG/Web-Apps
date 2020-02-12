@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tower Basic 7</title>
+<style type="text/css">
+@import url("CSS.css");
+</style>
+</head>
+
+<body class="main">
+
+<div class="sidenav">
+  <a href="ATC Program Thing.html" class="button" id="btnHome">Home</a>
+  <button class="dropdown-btn">Tower Basic <em class="fa fa-caret-down"></em></button>
+  <div class="dropdown-container">
+    <a href="Tower Basic 1.html" class="button" id="basic1">Basic 1</a>
+    <a href="Tower Basic 3.html" class="button" id="basic3">Basic 3</a>
+    <a href="Tower Basic 5.html" class="button" id="basic5">Basic 5</a>
+    <a href="Tower Basic 7.html" class="button" id="basic7">Basic 7</a>
+    <a href="Tower Basic 9.html" class="button" id="basic9">Basic 9</a>
+  </div>
+  <button class="dropdown-btn">Tower Advanced <em class="fa fa-caret-down"></em></button>
+  <div class="dropdown-container">
+    <a href="Tower Advanced13.html" class="button" id="advanced1">Advanced 13</a>
+    <a href="Tower Advanced 14.html" class="button" id="advanced3">Advanced 14</a>
+    <a href="Tower Advanced 16.html" class="button" id="advanced5">Advanced 16</a>
+    <a href="Tower Advanced 18.html" class="button" id="advanced7">Advanced 18</a>
+  </div>
+  <a href="Emergency Tower.html" class="button">Emergency Tower <em class="fa fa-caret-down"></em></a>
+</div>
+
+<div class="main">
+  <h1 align="center">Tower Basic 7</h1>
+  <pre>
+Issue Departure Control Instructions:
+
+	With ATIS:
+		Ground: Fame Four, Runway Two One Right at Echo, intersection departure eight thousand five hundred feet available, taxi via Alpha, 
+        		departure frequency two six niner point niner, squawk zero two zero one.
+                	</pre>
+             <audio controls> 
+    <source src="Audio Files\recordings\Basic\B71.wav" type = "audio/wav"></source>
+    </audio> 	 
+      <pre>     
+                
+		Ground: November Seven Niner Eight Seven Kilo, Runway Two One Right at Golf, intersection departure, taxi via alpha, 
+        		departure frequency one three niner point niner, squawk zero two zero two.
+                	</pre>
+             <audio controls> 
+    <source src="Audio Files\recordings\Basic\B72.wav" type = "audio/wav"></source>
+    </audio> 	 
+      <pre>     
+                
+	Doesn’t mention ATIS:
+		Ground: Fame Four, verify you have information Alpha, Runway Two One Right at Echo, intersection departure eight thousand five hundred feet available,
+        		taxi via Alpha, departure frequency two six niner point niner, squawk zero two zero one.
+                	</pre>
+             <audio controls> 
+    <source src="Audio Files\recordings\Basic\B73.wav" type = "audio/wav"></source>
+    </audio> 	 
+      <pre>      
+                
+		Ground: November Seven Niner Eight Seven Kilo, Verify you have information Bravo, Runway Two One Right at Golf, intersection departure, taxi via alpha, 
+        		departure frequency one three niner point niner, squawk zero two zero two.
+                		</pre>
+             <audio controls> 
+    <source src="Audio Files\recordings\Basic\B74.wav" type = "audio/wav"></source>
+    </audio> 	 
+      <pre>      
+                
+	Reports the wrong ATIS:
+		Ground: Fame Four, information Alpha now current, Runway Two One Right at Echo, intersection departure eight thousand five hundred feet available, taxi via Alpha, 
+        		wind calm, altimeter two niner niner two, departure frequency two six niner point niner, squawk zero two zero one.
+                			</pre>
+             <audio controls> 
+    <source src="Audio Files\recordings\Basic\B75.wav" type = "audio/wav"></source>
+    </audio> 	 
+      <pre>       
+                
+		Ground: November Seven Niner Eight Seven Kilo, information Whiskey now current, Runway Two One Right at Golf, intersection departure, taxi via alpha, 
+        		wind two three zero at six, altimeter three zero zero one, departure frequency one three niner point niner, squawk zero two zero two.
+                	 			</pre>
+             <audio controls> 
+    <source src="Audio Files\recordings\Basic\B76.wav" type = "audio/wav"></source>
+    </audio> 	 
+      <pre>      
+Change to Departure:
+
+	Without Traffic:
+		Local: Raptor Eight Eight, Runway Two One Right, wind two three zero at seven, cleared for takeoff, 
+        	       maintain at or below three thousand until departure end, change to departure.
+                       		</pre>
+             <audio controls> 
+    <source src="Audio Files\recordings\Basic\B77.wav" type = "audio/wav"></source>
+    </audio> 	 
+      <pre>      
+        
+	With Traffic:
+		Local: Raptor Eight Eight, Runway Two One Right, wind two three zero at seven, cleared for takeoff, 
+        	       maintain at or below three thousand until departure end, traffic heavy C-5 base, change to departure.
+                            		</pre>
+             <audio controls> 
+    <source src="Audio Files\recordings\Basic\B78.wav" type = "audio/wav"></source>
+    </audio> 	 
+      <pre>      
+
+Contact Departure:
+
+		Local: Wages Five Five, contact departure.
+        	                		</pre>
+             <audio controls> 
+    <source src="Audio Files\recordings\Basic\B79.wav" type = "audio/wav"></source>
+    </audio> 	 
+      <pre>      
+
+  </pre>
+</div>
+
+<div class="footer">
+	<button id="record">Record</button>
+    <button id="stop" disabled>Stop</button> 
+    <audio id ="recordedAudio" controls></audio>
+</div>
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+<script>
+var record = document.getElementById('record');
+var stopRecord = document.getElementById('stop');
+var recordedAudio = document.getElementById('recordedAudio')
+
+//record button
+record.onclick = e =>{
+record.disabled = true;
+record.style.backgroundColor = "red";
+stopRecord.disabled = false;
+audioChunks = [];	
+rec.start();	
+} 
+
+//stop button
+stopRecord.onclick = e =>{
+	record.disabled = false;
+	stopRecord.disabled = true;
+	rec.stop();
+	record.style.backgroundColor = "buttonface";
+}
+//Streams audio
+navigator.mediaDevices.getUserMedia({audio:true}).then(stream =>{handlerFunction(stream)})
+function handlerFunction(stream) {
+rec = new MediaRecorder(stream);
+
+rec.ondataavailable = e => { 
+audioChunks.push(e.data);
+if(rec.state == "inactive") {
+let blob = new Blob(audioChunks,{type:'audio/mpeg-3'});
+recordedAudio.src = URL.createObjectURL(blob);
+recordedAudio.controls=true;
+recordedAudio.autoplay=true;
+sendData(blob);
+}
+}
+}
+
+</script>
+</body>
+</html>
